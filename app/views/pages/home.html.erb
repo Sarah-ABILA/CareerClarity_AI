@@ -1,2 +1,28 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- Hero --->
+
+<div class="container">
+
+  <div class="hero-container text-center">
+    <h1>CareerClarity AI</h1>
+    <p>Moins de doutes. Plus de clarté.</p>
+  </div>
+
+<!-- Form --->
+  <div class="form-container justify-content-center">
+    <%= simple_form_for @chat do |f| %>
+      <%= f.input :persona, collection: ["avec emploi", "sans emploi"] %>
+      <%= f.input :title %>
+      <%= f.input :@content %>
+      <%= f.submit "Poser une question", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+<!-- Bottom nav --->
+
+  <div class="bottom-container d-flex justify-content-evenly">
+    <%= link_to "Historique", "#" %>
+    <%= link_to "Favoris", "#" %>
+    <%= link_to "Profil", "#" %>
+  </div>
+
+</div>
