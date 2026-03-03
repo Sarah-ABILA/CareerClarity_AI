@@ -19,4 +19,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :chats, only: [:index, :show, :new, :create] do
+    resources :messages, only: [:create]
+    # Route personnalisée pour déclencher la génération de la roadmap
+    member do
+      post :generate_roadmap
+    end
+    # Le résultat est souvent unique par chat
+    resource :result, only: [:show]
+  end
+
 end
