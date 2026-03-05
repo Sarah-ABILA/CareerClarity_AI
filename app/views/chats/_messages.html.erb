@@ -1,0 +1,15 @@
+<% @messages.each do |message| %>
+  <% if message.role == "user" %>
+    <div class="d-flex justify-content-end mb-2 message-row">
+      <div class="px-3 pb-0 pt-3 rounded-pill sender-style">
+        <%= raw(render_markdown(message.content)) %>
+      </div>
+    </div>
+  <% elsif message.role == "assistant" %>
+    <div class="d-flex justify-content-start mb-5 message-row">
+      <div class="px-3 pb-0 pt-3 receiver-style">
+        <%= raw(render_markdown(message.content)) %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
