@@ -7,6 +7,9 @@ class Chat < ApplicationRecord
   TITLE_PROMPT = <<~PROMPT
     Generate a short, descriptive, 3-to-5-word title that summarizes the user question for a chat conversation.
   PROMPT
+  has_many :messages, dependent: :destroy
+  belongs_to :user
+  has_one :result, dependent: :destroy
 
   def generate_title_from_first_message
     return unless title == DEFAULT_TITLE
