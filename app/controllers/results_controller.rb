@@ -81,7 +81,7 @@ PROMPT
 
   def chat_history
     # 3. On récupère l'historique complet du chat pour que l'IA ait tout le contexte
-    @chat.messages.map { |m| { role: m.role, content: m.content } }.join(",")
+    @chat.messages.map { |m| "#{m.role.capitalize}: #{m.content}" }.join("\n")
   end
 
   def instructions
