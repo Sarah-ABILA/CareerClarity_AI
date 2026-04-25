@@ -43,12 +43,25 @@ L'application a été conçue et livrée en équipe de quatre développeurs en *
 
 ## Mon rôle dans l'équipe
 
-Projet collectif à 4 développeurs (aliamzil, Kaliaa77, mariecantau, [Sarah-ABILA](https://github.com/Sarah-ABILA)). Mes contributions principales :
+Projet collectif à 4 développeurs (aliamzil, Kaliaa77, mariecantau, [Sarah-ABILA](https://github.com/Sarah-ABILA)). J'ai pris en charge **le back-end** en pair-programming, sur les briques suivantes :
 
-- Conception du schéma de données (utilisateurs, sessions, messages).
-- Intégration de l'API Anthropic via RubyLLM, gestion du contexte de conversation côté serveur.
-- Pages Devise + flux d'onboarding (formulaires Stimulus).
-- Code reviews croisées avec l'équipe.
+### 🗂️ Modélisation & schéma de données
+- Conception des modèles **User**, **Session**, **Message** et de leurs relations.
+- Migrations Rails et contraintes d'intégrité (clés étrangères, validations).
+
+### 🛣️ Routes & contrôleurs
+- Définition des routes RESTful du domaine (sessions de coaching, fil de messages).
+- Contrôleurs Rails pour orchestrer la création de session, l'envoi de messages et la restitution du plan d'action.
+
+### 🤖 Intégration Claude API & logique IA
+- Branchement de l'**API Anthropic Claude** via la gem **RubyLLM**.
+- Construction du **prompt système** spécifique au coaching de carrière.
+- Gestion du **contexte de conversation multi-tour** : injection de l'historique et du profil utilisateur dans chaque appel.
+- Implémentation de la **logique de plan d'action** restitué en fin d'entretien (forces, alertes, étapes 30/60/90 jours).
+
+### 👥 Méthode
+- Pair-programming avec un coéquipier sur les morceaux les plus critiques (intégration IA, contrôleurs).
+- Code reviews croisées avec l'ensemble de l'équipe.
 
 > Le repo collaboratif d'origine est [aliamzil/CareerClarity_AI](https://github.com/aliamzil/CareerClarity_AI). Cette version est mon fork personnel pour la mise en avant portfolio. L'historique Git d'origine est conservé.
 
@@ -57,38 +70,3 @@ Projet collectif à 4 développeurs (aliamzil, Kaliaa77, mariecantau, [Sarah-ABI
 Prérequis : Ruby 3.2+, PostgreSQL 14+, une clé API Anthropic.
 
 ```bash
-git clone https://github.com/Sarah-ABILA/CareerClarity_AI.git
-cd CareerClarity_AI
-
-bundle install
-yarn install
-
-# Configurer les variables d'environnement
-cp .env.example .env
-# Éditer .env et renseigner ANTHROPIC_API_KEY=sk-...
-
-# Préparer la base
-rails db:create db:migrate db:seed
-
-# Démarrer
-bin/dev
-```
-
-L'application est disponible sur `http://localhost:3000`.
-
-## Ce que j'ai appris sur ce projet
-
-- Travailler en sprint Agile très court (1 semaine) sur un produit livrable de bout en bout.
-- Concevoir un prompt système robuste pour un agent IA conversationnel multi-tour.
-- Découper un produit complexe en tickets actionnables et les livrer en revue de code.
-- Gérer les conflits de merge et la coordination Git à 4.
-
-## Ressources
-
-- [Démarche pédagogique Le Wagon AI Software](https://www.lewagon.com/fr/data-science-course)
-- [Anthropic Claude API documentation](https://docs.anthropic.com/)
-- [RubyLLM gem](https://github.com/crmne/ruby_llm)
-
----
-
-_Sarah Abila — Hyères (83) — [LinkedIn](https://linkedin.com/in/sarah-abila-278041378) — [GitHub](https://github.com/Sarah-ABILA)_
